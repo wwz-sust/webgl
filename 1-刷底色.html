@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webgl刷底色</title>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+<script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth / 2;
+    canvas.height = window.innerHeight /2;
+
+    var gl = canvas.getContext('webgl');
+
+    // 这里的色值是0-1，不是0-255
+    gl.clearColor(0,0,0,1);
+
+    // 刷底色，这里的COLOR_BUFFER_BIT是固定写法
+    gl.clear(gl.COLOR_BUFFER_BIT);
+</script>
+</html>
