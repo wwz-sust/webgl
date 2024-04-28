@@ -8,7 +8,10 @@
 <body>
     <canvas></canvas>
 </body>
-<script>
+<!-- <script src="https://unpkg.com/three@0.164.1/build/three.module.js"></script> -->
+<script type="module">
+    import { Color } from "https://unpkg.com/three@0.164.1/build/three.module.js";
+    
     var canvas = document.querySelector('canvas');
     canvas.width = window.innerWidth / 2;
     canvas.height = window.innerHeight /2;
@@ -20,5 +23,12 @@
 
     // 刷底色，这里的COLOR_BUFFER_BIT是固定写法
     gl.clear(gl.COLOR_BUFFER_BIT);
+
+
+
+    // 使用threejs库的方式 给画布上色
+    var color = new Color("rgba(255,255,0,1)");
+    gl.clearColor(color.r, color.g, color.b,1);  // 给画布上色
+    gl.clear(gl.COLOR_BUFFER_BIT); // 执行画布颜色
 </script>
 </html>
